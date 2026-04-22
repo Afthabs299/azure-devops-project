@@ -1,0 +1,24 @@
+trigger:
+- main
+
+pool:
+  name: Default
+
+steps:
+- checkout: self
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
+
+- script: |
+    echo "Current directory:"
+    dir
+  displayName: 'Check root files'
+
+- script: |
+    cd app
+    echo "Inside app folder:"
+    dir
+    npm install
+  displayName: 'Install dependencies'
