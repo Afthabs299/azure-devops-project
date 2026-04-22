@@ -7,13 +7,16 @@ pool:
 steps:
 - checkout: self
 
-- task: NodeTool@0
-  inputs:
-    versionSpec: '18.x'
+- script: |
+    echo "ROOT FILES:"
+    dir
+  displayName: 'Check root'
 
-- script: npm install
-  workingDirectory: Azure-devops-project/app
-  displayName: 'Install dependencies'
+- script: |
+    echo "CHECK ALL FOLDERS:"
+    dir /s
+  displayName: 'Check full structure'
 
-- script: echo "Build successful"
-  displayName: 'Build Step'
+- script: |
+    npm install
+  displayName: 'Install (temporary)'
