@@ -12,7 +12,7 @@ steps:
     versionSpec: '18.x'
 
 - script: npm install
-  workingDirectory: app
+  workingDirectory: Azure-devops-project/app
   displayName: 'Install dependencies'
 
 - script: echo "Build successful"
