@@ -11,14 +11,9 @@ steps:
   inputs:
     versionSpec: '18.x'
 
-- script: |
-    echo "Current directory:"
-    dir
-  displayName: 'Check root files'
-
-- script: |
-    cd app
-    echo "Inside app folder:"
-    dir
-    npm install
+- script: npm install
+  workingDirectory: app
   displayName: 'Install dependencies'
+
+- script: echo "Build successful"
+  displayName: 'Build Step'
